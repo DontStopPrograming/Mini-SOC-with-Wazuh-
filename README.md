@@ -93,7 +93,55 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 </group>
  
 
+## 🚀 Guía de Implementacion
+
+### Requisitos Previos
+
+- **Docker** y *Docker Compose* instalados ([guía oficial](https://docs.docker.com/get-docker/))
+- **Al menos 8 GB de RAM** disponibles en el host (Wazuh Indexer consume ~2 GB)
+- **Puertos libres**: 443(Dashboard), 9200(Indexer), 1514(Manager), 55000(API)
+- **Agente Wazuh** instalado en un endpoint Linux ([guía oficial](https://documentation.wazuh.com/current/installation-guide/wazuh-agent/index.html))
+- **Conocimientos básicos** de Docker y linea de comandos Linux
+
+
+9 ## 🎯 Casos de Uso Demostrados
+
+| Caso de uso | Tecnica MITRE | Estado |
+|-------------|---------------|--------|
+| Deteccion de fuerza bruta SSH | T1110 - Brute Force | Implementado |
+| Monitoreo de integridad de archivos criticos | T1565 - Data Manipulation | Implementado
+| Deteccion de login con usuario inexistente | T1078 - Valid Accounts | Implementado
+| Analisis forense de alertas | - | Documentado
+
+
+10 ## 🎓 Lecciones Aprendidas
+
+- **Gestion de puertos en Docker**: Los conflictos de puertos (443, 9200, 514) requirieron limpieza manual de `docker-proxy` huerfanos tras fallos de arranque. Antes de reintentar se debe hacer `docker compose down`
+- **Validacion de reglas personalizadas**: Descubrimiento que Wazuh no procesa bloques `<rule>` dentro de `ossec.conf`; deben ir en archivos `.xml` separados dentro de `etc/rules/`
+- **Sintaxis estricta de reglas**: El motor de reglas rechaza grupos vacios (`<group>` sin `<rule>` dentro). Uso de `wazuh-logtest` para validar antes de reiniciar.
+- **FIM en tiempo real**: La frecuencia por defecto de `syscheck` es 12 horas. Para demos agiles, es necesario configurar `realtime="yes"` o bajar la `frequency`.
+
+  
+
+12 ## 📚 Referencias y Recursos
+
+### Documentación Oficial
+- [Wazuh Documentation](https://documentation.wazuh.com/)
+- [Wazuh Custom Rules](https://documentation.wazuh.com/current/user-manual/ruleset/rules/custom.html)
+- [Wazuh Docker Deployment](https://documentation.wazuh.com/current/deployment-options/docker/index.html)
+
+### Frameworks
+- [MITRE ATT&CK T1110](https://attack.mitre.org/techniques/T1110/)
+- [MITRE ATT&CK Framework](https://attack.mitre.org/)
+
+### Recursos Complementarios
+- [Wazuh Community](https://wazuh.com/community/)
+- [Docker Compose Documentation](https://docs.docker.com/compose/)
 
 
 
+13 ## ⚠️ Descargo de Responsabilidad
 
+Proyecto diseñado **exclusivamente con fines educativos y de investigacion en ciberseguridad**. Las tecnicas de ataque simuladas (fuerza bruta SSH, modificaciones de archivos del sistema) deben ejecutarse **unicamente en entornos controlados y con autorizacion explicita**.
+
+El autor no se responsabiliza del uso indebido de este material. Aplicar estas técnicas contra sistemas sin autorización constituye un delito en la mayoría de jurisdicciones.
