@@ -125,7 +125,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 
 11 ## 🔧 Troubleshooting
 
-### Problema
+### Problema API
 
 API connection `API is down` despues de reiniciar el manager o modificar la configuracion.
 
@@ -134,7 +134,41 @@ API connection `API is down` despues de reiniciar el manager o modificar la conf
 No arranca correctamente debido a error de configuracion o servicio API interno (wazuh-apid) tarda de lo normal en estar disponible. El dashboard no puede conectar con la API en el puerto 55000.
 
 - **Verificar el estado del contenedor**
-  **docker compose ps**
+  docker compose ps
+
+- **Revisar logs del manager**
+  docker compose logs --tail=50 wazuh.manager
+
+- **Pulsar Refresh y esperar entre 2 a 3 minutos**
+    
+- **Si persiste reiniciar el stack**
+  docker compose down
+  docker compose up -d
+
+
+### Problema Rule
+
+Rule personalizada no se dispara
+
+### Causa
+
+Errores comunes en la sintaxis del archivo local_rules.xml
+
+  - **Verificar que el archivo este montado**
+    docker compose exec wazuh.manager cat /var/ossec/etc/rules/local_rules.xml
+
+
+  - **Asegurar que el contenido este dentro de un bloque <group>**
+    <group name="local,syslog,sshd,">
+      <rule id="100002" ...>
+        ...
+      </rule>
+    </group>
+
+  - **Validad regla con wazuh-logtest**
+    docker compose exec wazuh.manager /var/ossec/bin/wazuh-logtest
+    
+
   
 
 12 ## 📚 Referencias y Recursos
