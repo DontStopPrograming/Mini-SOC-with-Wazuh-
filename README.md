@@ -121,6 +121,20 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 - **Sintaxis estricta de reglas**: El motor de reglas rechaza grupos vacios (`<group>` sin `<rule>` dentro). Uso de `wazuh-logtest` para validar antes de reiniciar.
 - **FIM en tiempo real**: La frecuencia por defecto de `syscheck` es 12 horas. Para demos agiles, es necesario configurar `realtime="yes"` o bajar la `frequency`.
 
+
+
+11 ## 🔧 Troubleshooting
+
+### Problema
+
+API connection `API is down` despues de reiniciar el manager o modificar la configuracion.
+
+### Causa
+
+No arranca correctamente debido a error de configuracion o servicio API interno (wazuh-apid) tarda de lo normal en estar disponible. El dashboard no puede conectar con la API en el puerto 55000.
+
+- **Verificar el estado del contenedor**
+  **docker compose ps**
   
 
 12 ## 📚 Referencias y Recursos
