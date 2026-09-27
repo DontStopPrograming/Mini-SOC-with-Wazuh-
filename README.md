@@ -135,7 +135,9 @@ No arranca correctamente debido a error de configuracion o servicio API interno 
 
  | Verificar el estado del contenedor |
  |------------------------------------|
+ |------------------------------------|
  `docker compose ps` 
+ |------------------------------------|
 
  **Revisar logs del manager**
   docker compose logs --tail=50 wazuh.manager
