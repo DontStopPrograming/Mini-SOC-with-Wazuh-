@@ -136,13 +136,15 @@ No arranca correctamente debido a error de configuracion o servicio API interno 
 
  **Verificar el estado del contenedor** <br>       
  `docker compose ps` 
+ <br>
  
  **Revisar logs del manager** <br>                 
  `docker compose logs --tail=50 wazuh.manager` 
+ <br>
 
  **Pulsar Refresh y esperar entre 2 a 3 minutos** <br><br>
- `docker compose down` <br>
- `docker compose up -d`  <br>
+ `docker compose down` <br><br>
+ `docker compose up -d`  <br><br>
 
 
 ### Problema Rule
