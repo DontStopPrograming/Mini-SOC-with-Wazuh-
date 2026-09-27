@@ -134,13 +134,13 @@ API connection `API is down` despues de reiniciar el manager o modificar la conf
 No arranca correctamente debido a error de configuracion o servicio API interno (wazuh-apid) tarda de lo normal en estar disponible. El dashboard no puede conectar con la API en el puerto 55000.
 
 
- **Verificar el estado del contenedor**       
+ **Verificar el estado del contenedor** <br>       
  `docker compose ps` 
  
- **Revisar logs del manager**                 
+ **Revisar logs del manager** <br>                 
  `docker compose logs --tail=50 wazuh.manager` 
 
- **Pulsar Refresh y esperar entre 2 a 3 minutos** <br>
+ **Pulsar Refresh y esperar entre 2 a 3 minutos** <br><br>
  `docker compose down` <br>
  `docker compose up -d`  <br>
 
