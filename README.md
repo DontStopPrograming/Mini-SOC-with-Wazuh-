@@ -140,9 +140,9 @@ No arranca correctamente debido a error de configuracion o servicio API interno 
  **Revisar logs del manager**                 
  `docker compose logs --tail=50 wazuh.manager` 
 
- **Pulsar Refresh y esperar entre 2 a 3 minutos** 
- `docker compose down` 
- `docker compose up -d`  
+ **Pulsar Refresh y esperar entre 2 a 3 minutos** <br>
+ `docker compose down` <br>
+ `docker compose up -d`  <br>
 
 
 ### Problema Rule
