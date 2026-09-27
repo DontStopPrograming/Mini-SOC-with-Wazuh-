@@ -93,6 +93,26 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 </group>
  
 
+### Volumen Docker para Montar Reglas (`docker-compose.yml`)
+
+```yaml
+services:
+  wazuh.manager:
+    volumes:
+      - ./config/wazuh_cluster/wazuh_manager.conf:/wazuh-config-mount/etc/ossec/.conf
+      - ./config/wazuh_cluster/local_rules.xml:/var/ossec/etc/rules/local_rules.xml
+```
+
+### Configuracion del Agente para leer endpoint `auth.log` (`/var/ossec/etc/ossec.conf`)
+
+```xml
+<localfile>
+  <log_format>syslog</log_format>
+  <location>/var/log/auth.log</location>
+</localfile>
+```
+
+
 ## 🚀 Guía de Implementacion
 
 ### Requisitos Previos
@@ -104,7 +124,71 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 - **Conocimientos básicos** de Docker y linea de comandos Linux
 
 
-9 ## 🎯 Casos de Uso Demostrados
+### Paso 1: Despliegue del Servidor Wazuh
+
+```bash
+#Clonar repositorio
+git clone https://github.com/tu-usuario/wazuh-mini-soc.git
+cd wazuh-mini-soc
+
+#Iniciar Stack
+docker compose up -d
+```
+
+### Paso 2: Configuracion del Agente (Linux Mint)
+
+```bash
+#Instalar rsyslog para generar auth.log
+sudo apt install rsyslog -y
+
+#Editar configuracion del agente
+sudo nano /var/ossec/etc/ossec.conf
+
+#Añadir bloque de localfile para auth.log
+
+#Reiniciar agente
+sudo systemctl restart wazuh-agent
+```
+
+### Paso 3: Simulación del Ataque
+
+```bash
+#En Linux Mint
+bash scripts/simulate_bruteforce.sh
+```
+
+
+## 🔍 Evidencia de Detección
+
+### Alerta de Fuerza Bruta SSH
+
+| Campo | Valor |
+|-------|-------|
+| **Rule ID** | 100002 |
+| **Level** | 10(High) |
+| **Description** | SSH brute force detectado |
+| **Agent** | namePC-VirtualBox (003) |
+| **MITRE ID** | T1110 |
+| **MITRE Tactic** | Credential Access |
+| **MITRE Technique** | Brute Force |
+
+
+
+### Capturas
+
+
+## 📊 Resultados y Métricas
+
+| Métrica | Valor |
+|---------|-------|
+| Eventos totales detectados | numero |
+| Alertas de fuerza bruta | numero |
+| Severidad maxima | Level numero |
+| Tiempo de deteccion | < numero segundos |
+| Falsos positivos | numero |
+
+
+## 🎯 Casos de Uso Demostrados
 
 | Caso de uso | Tecnica MITRE | Estado |
 |-------------|---------------|--------|
@@ -114,7 +198,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 | Analisis forense de alertas | - | Documentado
 
 
-10 ## 🎓 Lecciones Aprendidas
+## 🎓 Lecciones Aprendidas
 
 - **Gestion de puertos en Docker**: Los conflictos de puertos (443, 9200, 514) requirieron limpieza manual de `docker-proxy` huerfanos tras fallos de arranque. Antes de reintentar se debe hacer `docker compose down`
 - **Validacion de reglas personalizadas**: Descubrimiento que Wazuh no procesa bloques `<rule>` dentro de `ossec.conf`; deben ir en archivos `.xml` separados dentro de `etc/rules/`
@@ -123,7 +207,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 
 
 
-11 ## 🔧 Troubleshooting
+## 🔧 Troubleshooting
 
 ### Problema API
 
@@ -155,24 +239,21 @@ Rule personalizada no se dispara
 
 Errores comunes en la sintaxis del archivo local_rules.xml
 
-  - **Verificar que el archivo este montado**
-    docker compose exec wazuh.manager cat /var/ossec/etc/rules/local_rules.xml
+  **Verificar que el archivo este montado**
+  `docker compose exec wazuh.manager cat /var/ossec/etc/rules/local_rules.xml`
 
-
-  - **Asegurar que el contenido este dentro de un bloque <group>**
-    <group name="local,syslog,sshd,">
+  **Asegurar que el contenido este dentro de un bloque <group>**
+  `<group name="local,syslog,sshd,">
       <rule id="100002" ...>
         ...
       </rule>
-    </group>
+    </group>`
 
-  - **Validad regla con wazuh-logtest**
-    docker compose exec wazuh.manager /var/ossec/bin/wazuh-logtest
+  **Validad regla con wazuh-logtest**
+  `docker compose exec wazuh.manager /var/ossec/bin/wazuh-logtest`
     
 
-  
-
-12 ## 📚 Referencias y Recursos
+## 📚 Referencias y Recursos
 
 ### Documentación Oficial
 - [Wazuh Documentation](https://documentation.wazuh.com/)
@@ -189,8 +270,18 @@ Errores comunes en la sintaxis del archivo local_rules.xml
 
 
 
-13 ## ⚠️ Descargo de Responsabilidad
+## ⚠️ Descargo de Responsabilidad
 
 Proyecto diseñado **exclusivamente con fines educativos y de investigacion en ciberseguridad**. Las tecnicas de ataque simuladas (fuerza bruta SSH, modificaciones de archivos del sistema) deben ejecutarse **unicamente en entornos controlados y con autorizacion explicita**.
 
 El autor no se responsabiliza del uso indebido de este material. Aplicar estas técnicas contra sistemas sin autorización constituye un delito en la mayoría de jurisdicciones.
+
+## Autor
+
+**ForME**
+- Portfolio:
+- Github:
+
+## Licencia
+
+Licencia MIT.
