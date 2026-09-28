@@ -219,16 +219,23 @@ No arranca correctamente debido a error de configuracion o servicio API interno 
 
 
  **Verificar el estado del contenedor** <br>
- `docker compose ps` 
+ ```bash
+ docker compose ps
+ ``` 
  <br><br>
  
  **Revisar logs del manager** <br>
- `docker compose logs --tail=50 wazuh.manager` 
+ ```bash
+ docker compose logs --tail=50 wazuh.manager
+ ``` 
  <br><br>
 
  **Pulsar Refresh y esperar entre 2 a 3 minutos** <br>
- `docker compose down` <br>
- `docker compose up -d`  <br><br>
+ ```bash
+ docker compose down
+ docker compose up -d
+```
+  <br><br>
 
 
 ### Problema Rule
@@ -240,19 +247,24 @@ Rule personalizada no se dispara
 Errores comunes en la sintaxis del archivo local_rules.xml
 
   **Verificar que el archivo este montado**
-  `docker compose exec wazuh.manager cat /var/ossec/etc/rules/local_rules.xml`
+  ```bash
+  docker compose exec wazuh.manager cat /var/ossec/etc/rules/local_rules.xml
+  ```
 
   **Asegurar que el contenido este dentro de un bloque <group>**
-  `<group name="local,syslog,sshd,">
+  ```xml
+  <group name="local,syslog,sshd,">
       <rule id="100002" ...>
         ...
       </rule>
-    </group>`
+    </group>
+  ```
 
   **Validad regla con wazuh-logtest**
-  `docker compose exec wazuh.manager /var/ossec/bin/wazuh-logtest`
+  ```bash
+  docker compose exec wazuh.manager /var/ossec/bin/wazuh-logtest
+  ```
     
-
 ## 📚 Referencias y Recursos
 
 ### Documentación Oficial
