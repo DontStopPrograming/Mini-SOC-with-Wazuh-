@@ -258,9 +258,16 @@ Errores comunes en la sintaxis del archivo local_rules.xml
   **Asegurar que el contenido este dentro de un bloque <group>**
   ```xml
   <group name="local,syslog,sshd,">
-      <rule id="100002" ...>
-        ...
+
+      <rule id="100002" level="10" frequency="5" timeframe="120">
+        <if_matched_sid>5710</if_matched_sid>
+        <description>SSH Brute Force attack detected</description>
+        <mitre>
+          <id>T1110</id>
+        </mitre>
+      <group>authentication_failures,brute_force,</group>
       </rule>
+
     </group>
   ```
 
