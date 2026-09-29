@@ -251,6 +251,10 @@ Errores comunes en la sintaxis del archivo local_rules.xml
   docker compose exec wazuh.manager cat /var/ossec/etc/rules/local_rules.xml
   ```
 
+  ```bash
+  docker compose exec wazuh.manager /var/ossec/bin/wazuh-control status
+  ```
+
   **Asegurar que el contenido este dentro de un bloque <group>**
   ```xml
   <group name="local,syslog,sshd,">
