@@ -289,9 +289,11 @@ Filtrando por el ID de nuestra regla personalizada, se confirma que las alertas 
 
 ![Regla 100002 Grafica](img/rule-100002.JPG)
 
+<br>
+
 **Vista de Lista**
 
-![Regla 100002 Lista](‎img/rule-100002-lista.JPG)
+![Regla 100002 Lista](‎img/rule-100002-list.JPG)
 
 <br>
 
