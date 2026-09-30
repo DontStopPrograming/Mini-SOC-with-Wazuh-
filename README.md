@@ -268,7 +268,7 @@ Al filtrar los eventos del agente `shaka-VirtualBox`, se observan múltiples ale
 
 El filtro por `rule.level:10` muestra las alertas de alta severidad generadas durante el ataque, incluyendo la regla **5551** (PAM: multiples logins fallidos) y la regla **5712** (SSH Brute Force intentando acceder al sistema)
 
-![Reglas 5551 y 5712](img/ruless-5551-5712.JPG)
+![Reglas 5551 y 5712](img/rules-5551-5712.JPG)
 
 <br>
 
