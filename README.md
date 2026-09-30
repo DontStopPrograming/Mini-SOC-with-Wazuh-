@@ -272,6 +272,15 @@ El filtro por `rule.level:10` muestra las alertas de alta severidad generadas du
 
 <br>
 
+
+**4. Mapeo MITRE ATT&CK confirmado en el dashboard**
+
+El panel **MITRE ATT&CK -> Top Tactics** confirma que el dashboard clasifica correctamente las alertas del ataque, destacando la tactica **Credential Access** con **124 eventos**, evidencia directa de la deteccion de la tecnica **T1110 (Brute Force)**
+
+![MITRE ATT&CK Tactics](img/mitre-attack.JPG)
+
+<br>
+
 ## 📊 Resultados y Métricas
 
 | Métrica | Valor |
