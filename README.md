@@ -293,7 +293,7 @@ Filtrando por el ID de nuestra regla personalizada, se confirma que las alertas 
 
 **Vista de Lista**
 
-![Regla 100002 Lista](‎img/rule-100002-list.JPG)
+![Regla 100002 Lista](img/rule-100002-lista.JPG)
 
 <br>
 
