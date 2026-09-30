@@ -10,9 +10,9 @@ Detection Attacks SSH and MITRE ATT&amp;CK
 
 1. [Descripción General](#-descripción-general)
 2. [Objetivos](#-objetivos)
-3. [Arquitectura del Laboratorio](#️-arquitectura-del-laboratorio)
-4. [Tecnologías Utilizadas](#️-tecnologías-utilizadas)
-5. [Configuración Clave](#️-configuración-clave-del-laboratorio)
+3. [Arquitectura del Laboratorio](#-arquitectura-del-laboratorio)
+4. [Tecnologías Utilizadas](#-tecnologías-utilizadas)
+5. [Configuración Clave](#-configuración-clave-del-laboratorio)
 6. [Guía de Implementación](#-guía-de-implementación)
 7. [Evidencia de Detección](#-evidencia-de-detección)
 8. [Resultados y Métricas](#-resultados-y-métricas)
@@ -20,7 +20,7 @@ Detection Attacks SSH and MITRE ATT&amp;CK
 10. [Lecciones Aprendidas](#-lecciones-aprendidas)
 11. [Troubleshooting](#-troubleshooting)
 12. [Referencias y Recursos](#-referencias-y-recursos)
-13. [Descargo de Responsabilidad](#️-descargo-de-responsabilidad)
+13. [Descargo de Responsabilidad](#-descargo-de-responsabilidad)
 14. [Autor](#-autor)
 15. [Licencia](#-licencia)
 
@@ -59,7 +59,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 | **Atacante (simulado)** | Linux Mint (localhost) | sshpass | Generación de eventos de fuerza bruta |
 
 
-## 🏗️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 | Categoría | Herramienta | Versión |
 |-----------|-------------|---------|
@@ -72,7 +72,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 | **Framework** | MITRE ATT&CK | v14 |
 
 
-## 🏗️ Configuracion Clave
+## Configuracion Clave
 
 ### Regla Personalizada (`config/wazuh_cluster/local_rules.xml`)
 
