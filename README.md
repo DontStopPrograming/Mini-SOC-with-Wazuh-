@@ -59,7 +59,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 | **Atacante (simulado)** | Linux Mint (localhost) | sshpass | Generación de eventos de fuerza bruta |
 
 
-## Tecnologías Utilizadas
+## 🏗️ Tecnologías Utilizadas
 
 | Categoría | Herramienta | Versión |
 |-----------|-------------|---------|
@@ -72,7 +72,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 | **Framework** | MITRE ATT&CK | v14 |
 
 
-## Configuracion Clave
+## 🏗️ Configuracion Clave
 
 ### Regla Personalizada (`config/wazuh_cluster/local_rules.xml`)
 
