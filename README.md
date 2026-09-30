@@ -239,19 +239,6 @@ El dashboard muestra **246 fallos de autenticación** concentrados en un pico te
 ![Dashboard General](img/dashboard-attack.JPG)
 
 
-### Alerta de Fuerza Bruta SSH
-
-| Campo | Valor |
-|-------|-------|
-| **Rule ID** | 100002 |
-| **Level** | 10(High) |
-| **Description** | SSH brute force detectado |
-| **Agent** | namePC-VirtualBox (003) |
-| **MITRE ID** | T1110 |
-| **MITRE Tactic** | Credential Access |
-| **MITRE Technique** | Brute Force |
-
-
 
 ### Capturas de pantalla
 
@@ -308,6 +295,19 @@ Filtrando por el ID de nuestra regla personalizada, se confirma que las alertas 
 ![Regla 100002 Lista](img/rule-100002-lista.JPG)
 
 <br>
+
+
+### Alerta de Fuerza Bruta SSH
+
+| Campo | Valor |
+|-------|-------|
+| **Rule ID** | 100002 |
+| **Level** | 10(High) |
+| **Description** | SSH brute force detectado |
+| **Agent** | shaka-VirtualBox (003) |
+| **MITRE ID** | T1110 |
+| **MITRE Tactic** | Credential Access |
+| **MITRE Technique** | Brute Force |
 
 
 ## 📊 Resultados y Métricas
