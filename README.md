@@ -204,6 +204,24 @@ bash scripts/simulate_bruteforce.sh
 
 ## 🔍 Evidencia de Detección
 
+### Ejecucion del Ataque
+
+El script `simulate_bruteforce.sh` se ejecuta en el endpoint (Linux Mint) y lanza 20 intentos de autenticacion SSH fallidos:
+
+```
+[*] Lanzando 20 intentos contra fakeuser@localhost...
+[+] Intento 1/20
+[+] Intento 2/20
+[+] Intento 3/20
+...
+[+] Intento 19/20
+[+] Intento 20/20
+[OK] Ataque completado. Filtra en el dashboard: rule.id:100002
+```
+
+Cada intento genera un evento `Failed password` en `/var/log/auth.log`, que el agente Wazuh lee y envia al manager.
+
+
 ### Alerta de Fuerza Bruta SSH
 
 | Campo | Valor |
