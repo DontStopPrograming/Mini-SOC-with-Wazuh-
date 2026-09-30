@@ -17,14 +17,13 @@ Detection Attacks SSH and MITRE ATT&amp;CK
 5. [Configuración Clave](#-configuración-clave-del-laboratorio)
 6. [Guía de Implementación](#-guía-de-implementación)
 7. [Evidencia de Detección](#-evidencia-de-detección)
-8. [Resultados y Métricas](#-resultados-y-métricas)
-9. [Casos de Uso Demostrados](#-casos-de-uso-demostrados)
-10. [Lecciones Aprendidas](#-lecciones-aprendidas)
-11. [Troubleshooting](#-troubleshooting)
-12. [Referencias y Recursos](#-referencias-y-recursos)
-13. [Descargo de Responsabilidad](#-descargo-de-responsabilidad)
-14. [Autor](#-autor)
-15. [Licencia](#-licencia)
+8. [Casos de Uso Demostrados](#-casos-de-uso-demostrados)
+9. [Lecciones Aprendidas](#-lecciones-aprendidas)
+10. [Troubleshooting](#-troubleshooting)
+11. [Referencias y Recursos](#-referencias-y-recursos)
+12. [Descargo de Responsabilidad](#-descargo-de-responsabilidad)
+13. [Autor](#-autor)
+14. [Licencia](#-licencia)
 
 <br>
 
@@ -309,16 +308,6 @@ Filtrando por el ID de nuestra regla personalizada, se confirma que las alertas 
 | **MITRE Tactic** | Credential Access |
 | **MITRE Technique** | Brute Force |
 
-
-## 📊 Resultados y Métricas
-
-| Métrica | Valor |
-|---------|-------|
-| Eventos totales detectados | numero |
-| Alertas de fuerza bruta | numero |
-| Severidad maxima | Level numero |
-| Tiempo de deteccion | < numero segundos |
-| Falsos positivos | numero |
 
 <br>
 
