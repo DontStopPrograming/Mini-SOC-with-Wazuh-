@@ -222,6 +222,11 @@ El script `simulate_bruteforce.sh` se ejecuta en el endpoint (Linux Mint) y lanz
 Cada intento genera un evento `Failed password` en `/var/log/auth.log`, que el agente Wazuh lee y envia al manager.
 
 
+El dashboard muestra **246 fallos de autenticación** concentrados en un pico temporal, evidencia del patrón de fuerza bruta
+
+![Dashboard General](img/dashboard-attack.JPG)
+
+
 ### Alerta de Fuerza Bruta SSH
 
 | Campo | Valor |
