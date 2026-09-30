@@ -192,7 +192,7 @@ bash scripts/simulate_bruteforce.sh
 
 **Dashboard principal con el pico del ataque**
 
-![Dashboard General](img/dashboard.jpg)
+![Dashboard General](img/dashboard.JPG)
 
 -**Total de valor 40 eventos detectados**
 -**Level 12 de valor 0 ninguna alerta supera el nivel 12**
