@@ -110,6 +110,23 @@ services:
 ```
 
 
+### Configuracion del Cliente Wazuh en el Agente (`/var/ossec/etc/ossec.conf`)
+
+```xml
+  <client>
+    <server>
+      <address>IP_DEL_MANAGER</address>
+      <port>1514</port>
+    </server>
+    <config-profile>linuxmint, linuxmint22, linuxmint22.3</config-profile>
+    <notify_time>20</notify_time>
+    <time-reconnect>60</time-reconnect>
+    <auto_restart>yes</auto_restart>
+    <crypto_method>aes</crypto_method>
+  </client>
+```
+
+
 ## 🚀 Guía de Implementacion
 
 ### Requisitos Previos
