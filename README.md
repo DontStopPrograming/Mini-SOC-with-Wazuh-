@@ -110,6 +110,36 @@ services:
 ```
 
 
+### Script de Ataque (simulate_bruteforce.sh)
+
+```bash
+  #!/bin/bash
+  # ==========================================
+  # Simulacion de brute force SSH -MITRE T1110
+  # Ejecutar en el endpoint (Linux Mint)
+  # ==========================================
+
+  INTENTOS=20
+
+  # Verificaciones previas
+  command -v sshpass &>/dev/null || sudo apt install sshpass -y
+  systemctl is-active --quiet ssh || { echo "[!] SSH no activo"; exit 1; }
+  systemctl is-active --quiet rsyslog || sudo systemctl start rsyslog
+  [ -f /var/log/auth.log ] || { echo "[!] Falta auth.log"; exit 1; }
+
+  echo "[*] Lanzado ${INTENTOS} intentos contra fakeuser@localhost..."
+  for i in $(seq 1 ${INTENTOS}); do
+          sshpass -p "wrongpass${i}" ssh fakeuser@localhost \
+                  -o StrictHostKeyChecking=no \
+                  -o ConnectTimeout=1 \
+                  -o PreferredAuthentications=password \
+                  2>/dev/null
+            echo "[+] Intento ${i}\${INTENTOS}"
+  done
+  echo "[ok] Ataque completado. Filtra en el dashboard: rule.id:100002"
+```
+
+
 ### Configuracion del Cliente Wazuh en el Agente (`/var/ossec/etc/ossec.conf`)
 
 ```xml
