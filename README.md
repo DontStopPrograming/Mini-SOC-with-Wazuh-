@@ -188,7 +188,19 @@ bash scripts/simulate_bruteforce.sh
 
 
 
-### Capturas
+### Capturas de pantalla
+
+**Dashboard principal con el pico del ataque**
+
+
+
+-**Total de valor 40 eventos detectados**
+-**Level 12 de valor 0 ninguna alerta supera el nivel 12**
+-**Authentication failure de valor 0 contador global del dashboard**
+-**Authentication de valor 16 Logins existosos legitimos del sistema**
+
+
+
 
 
 ## 📊 Resultados y Métricas
