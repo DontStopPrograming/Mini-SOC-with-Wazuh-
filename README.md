@@ -194,7 +194,8 @@ bash scripts/simulate_bruteforce.sh
 
 ![Dashboard General](img/dashboard.JPG)
 
-|--------------------------------------------------------------------|
+| Descripcion del Dashboard |
+|---------------------------|
 | Total de valor 40 eventos detectados |
 | Level 12 de valor 0 ninguna alerta supera el nivel 12 |
 | Authentication failure de valor 0 contador global del dashboard |
