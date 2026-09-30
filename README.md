@@ -254,6 +254,7 @@ El dashboard muestra **246 fallos de autenticación** concentrados en un pico te
 | Authentication failure de valor 0 contador global del dashboard |
 | Authentication de valor 16 Logins existosos legitimos del sistema |
 
+<br>
 
 **2. Alertas de intentos de autenticacion fallidos**
 
@@ -261,7 +262,15 @@ Al filtrar los eventos del agente `shaka-VirtualBox`, se observan múltiples ale
 
 ![Alertas de autenticacion](img/auth-failures.JPG)
 
+<br>
 
+**3. Reglas disparadas durante el ataque**
+
+El filtro por `rule.level:10` muestra las alertas de alta severidad generadas durante el ataque, incluyendo la regla **5551** (PAM: multiples logins fallidos) y la regla **5712** (SSH Brute Force intentando acceder al sistema)
+
+![Reglas 5551 y 5712](img/ruless-5551-5712.JPG)
+
+<br>
 
 ## 📊 Resultados y Métricas
 
