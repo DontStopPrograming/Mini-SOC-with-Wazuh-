@@ -6,6 +6,8 @@ Detection Attacks SSH and MITRE ATT&amp;CK
 ![MITRE ATT&CK](https://img.shields.io/badge/MITRE-T1110-red)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+<br>
+
 ## 📑 Índice
 
 1. [Descripción General](#-descripción-general)
@@ -24,11 +26,13 @@ Detection Attacks SSH and MITRE ATT&amp;CK
 14. [Autor](#-autor)
 15. [Licencia](#-licencia)
 
+<br>
 
 ## 📖 Descripción General
 
 Laboratorio práctico de Seguridad de la Información que implementa un **mini SOC (Security Operations Center)** funcional utilizando **Wazuh SIEM/XDR** sobre Docker. El proyecto demuestra el ciclo completo de detección de amenazas: desde la implementación del agente en un endpoint Linux Mint, hasta la detección de un ataque de fuerza bruta SSH y la correlación con el framework **MITRE ATT&CK**.
 
+<br>
 
 ## 🎯 Objetivos
 
@@ -39,7 +43,11 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 - ✅ **Validar** la deteccion y visualizacion en el dashboard
 - ✅ **Documentar** el proceso completo de la forma reproducible
 
+<br>  
+
 ## 🏗️ Arquitectura del Laboratorio
+
+<br>
 
 ### Diagrama de Componentes
 
@@ -49,6 +57,8 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 
 ### Diagrama de Flujo de Ataque y Defensa
 
+
+<br>
 
 ### Inventario de Activos
 
@@ -156,6 +166,7 @@ services:
   </client>
 ```
 
+<br>
 
 ## 🚀 Guía de Implementacion
 
@@ -201,6 +212,7 @@ sudo systemctl restart wazuh-agent
 bash scripts/simulate_bruteforce.sh
 ```
 
+<br>
 
 ## 🔍 Evidencia de Detección
 
@@ -308,6 +320,7 @@ Filtrando por el ID de nuestra regla personalizada, se confirma que las alertas 
 | Tiempo de deteccion | < numero segundos |
 | Falsos positivos | numero |
 
+<br>
 
 ## 🎯 Casos de Uso Demostrados
 
@@ -318,6 +331,7 @@ Filtrando por el ID de nuestra regla personalizada, se confirma que las alertas 
 | Deteccion de login con usuario inexistente | T1078 - Valid Accounts | Implementado
 | Analisis forense de alertas | - | Documentado
 
+<br>
 
 ## 🎓 Lecciones Aprendidas
 
@@ -326,7 +340,7 @@ Filtrando por el ID de nuestra regla personalizada, se confirma que las alertas 
 - **Sintaxis estricta de reglas**: El motor de reglas rechaza grupos vacios (`<group>` sin `<rule>` dentro). Uso de `wazuh-logtest` para validar antes de reiniciar.
 - **FIM en tiempo real**: La frecuencia por defecto de `syscheck` es 12 horas. Para demos agiles, es necesario configurar `realtime="yes"` o bajar la `frequency`.
 
-
+<br>
 
 ## 🔧 Troubleshooting
 
@@ -405,6 +419,8 @@ Errores comunes en la sintaxis del archivo local_rules.xml
   ```bash
   docker compose exec wazuh.manager /var/ossec/bin/wazuh-logtest
   ```
+
+<br>
     
 ## 📚 Referencias y Recursos
 
@@ -423,17 +439,23 @@ Errores comunes en la sintaxis del archivo local_rules.xml
 
 
 
+<br>
+
 ## ⚠️ Descargo de Responsabilidad
 
 Proyecto diseñado **exclusivamente con fines educativos y de investigacion en ciberseguridad**. Las tecnicas de ataque simuladas (fuerza bruta SSH, modificaciones de archivos del sistema) deben ejecutarse **unicamente en entornos controlados y con autorizacion explicita**.
 
 El autor no se responsabiliza del uso indebido de este material. Aplicar estas técnicas contra sistemas sin autorización constituye un delito en la mayoría de jurisdicciones.
 
+<br>
+
 ## Autor
 
 **ForME**
 - Portfolio:
 - Github:
+
+<br>
 
 ## Licencia
 
