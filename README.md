@@ -270,6 +270,15 @@ Errores comunes en la sintaxis del archivo local_rules.xml
 
     </group>
   ```
+  
+  **Restar el Docker**
+  ```bash
+    docker compose restart wazuh.manager
+  ```
+
+  ```bash
+    docker compose logs --tail=100 wazuh.manager
+  ```
 
   **Validad regla con wazuh-logtest**
   ```bash
