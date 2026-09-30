@@ -281,6 +281,15 @@ El panel **MITRE ATT&CK -> Top Tactics** confirma que el dashboard clasifica cor
 
 <br>
 
+**5. Alertas de la regla personalizada (rule.id:100002)**
+
+Filtrando por el ID de nuestra regla personalizada, se confirma que las alertas del ataque estan siendo procesadas por la regla **100002**
+
+![Regla 100002](img/rule-100002.JPG)
+
+<br>
+
+
 ## 📊 Resultados y Métricas
 
 | Métrica | Valor |
