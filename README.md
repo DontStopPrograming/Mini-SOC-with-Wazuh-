@@ -243,7 +243,7 @@ El dashboard muestra **246 fallos de autenticación** concentrados en un pico te
 
 ### Capturas de pantalla
 
-**Dashboard principal con el pico del ataque**
+**1. Dashboard principal con el pico del ataque**
 
 ![Dashboard General](img/dashboard.JPG)
 
@@ -253,6 +253,13 @@ El dashboard muestra **246 fallos de autenticación** concentrados en un pico te
 | Level 12 de valor 0 ninguna alerta supera el nivel 12 |
 | Authentication failure de valor 0 contador global del dashboard |
 | Authentication de valor 16 Logins existosos legitimos del sistema |
+
+
+**2. Alertas de intentos de autenticacion fallidos**
+
+Al filtrar los eventos del agente `shaka-VirtualBox`, se observan múltiples alertas de `sshd: Attempt to login using a non-existent user` y `PAM: User login failed`, evidencia directa del ataque de fuerza bruta
+
+![Alertas de autenticacion](img/auth-failures.JPG)
 
 
 
