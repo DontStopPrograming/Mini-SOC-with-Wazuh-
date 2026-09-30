@@ -50,10 +50,6 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 ### Diagrama de Flujo de Ataque y Defensa
 
 
-
-
-
-
 ### Inventario de Activos
 
 | Rol | Sistema Operativo | Software | Función |
@@ -62,7 +58,8 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 | **Endpoint Monitorizado** | Linux Mint | Wazuh Agent + rsyslog | Recolección de logs y detección local |
 | **Atacante (simulado)** | Linux Mint (localhost) | sshpass | Generación de eventos de fuerza bruta |
 
-### Tecnologías Utilizadas
+
+## Tecnologías Utilizadas
 
 | Categoría | Herramienta | Versión |
 |-----------|-------------|---------|
