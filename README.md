@@ -311,6 +311,15 @@ Filtrando por el ID de nuestra regla personalizada, se confirma que las alertas 
 
 <br>
 
+**6. Deteccion de File Integrity Monitoring (FIM)**
+
+El modulo FIM del agente Wazuh detecto la modificación no autorizada del archivo `/etc/hosts`, generando una alerta de nivel *7* con la regla **550** (`Integrity checksum changed`). El filtro aplicado (`rule.groups:syscheck` + agent.id:003`) aisla los eventos de integridad del agente linux Mint, mostrando tanto la modificación provocada durante la simulación como otras modificaciones del sistema.
+
+Esta detección corresponde a la técnica **T1565 - Data Manipulation** de MITRE ATT&CK, que cubre la manipulación de datos almacenados en archivos del sistema
+
+![FIM Alert](img/Fim.JPG)
+
+
 ## 🎯 Casos de Uso Demostrados
 
 | Caso de uso | Tecnica MITRE | Estado |
