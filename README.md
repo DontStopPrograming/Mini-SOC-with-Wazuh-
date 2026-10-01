@@ -319,6 +319,17 @@ Esta detección corresponde a la técnica **T1565 - Data Manipulation** de MITRE
 
 ![FIM Alert](img/Fim.JPG)
 
+<br>
+
+**7. Deteccion de login con usuario inexistente (T1078)**
+
+El ruleset por defecto de Wazuh detecto **231 intentos de login con usuario inexistente** durante la simulación del ataque. La regla **5710** (`sshd: Attempt to login using a non-existent user`) se dispara cada vez que el servicio SSH registra un intento de autenticación con un usuario que no existe en el sistema, generando alertas de nivel **5**
+
+Esta deteccion corresponde a la tecnica **T1078 - Valid Accounts** de MITRE ATT&CK, que cubre intentos de acceso usando cuentas validas o inexistentes
+
+![Regla 5710](img/rule-5710.JPG)
+
+<br>
 
 ## 🎯 Casos de Uso Demostrados
 
@@ -327,7 +338,6 @@ Esta detección corresponde a la técnica **T1565 - Data Manipulation** de MITRE
 | Deteccion de fuerza bruta SSH | T1110 - Brute Force | Implementado |
 | Monitoreo de integridad de archivos criticos | T1565 - Data Manipulation | Implementado
 | Deteccion de login con usuario inexistente | T1078 - Valid Accounts | Implementado
-| Analisis forense de alertas | - | Documentado
 
 <br>
 
