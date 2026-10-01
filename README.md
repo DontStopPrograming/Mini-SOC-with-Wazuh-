@@ -239,14 +239,7 @@ El dashboard muestra **246 fallos de autenticación** concentrados en un pico te
 
 ### Capturas de pantalla
 
-**1. Dashboard principal con el pico del ataque**
-
-![Dashboard General](img/dashboard.JPG)
-
-
-<br>
-
-**2. Alertas de intentos de autenticacion fallidos**
+**1. Alertas de intentos de autenticacion fallidos**
 
 Al filtrar los eventos del agente `shaka-VirtualBox`, se observan múltiples alertas de `sshd: Attempt to login using a non-existent user` y `PAM: User login failed`, evidencia directa del ataque de fuerza bruta
 
@@ -254,7 +247,7 @@ Al filtrar los eventos del agente `shaka-VirtualBox`, se observan múltiples ale
 
 <br>
 
-**3. Reglas disparadas durante el ataque**
+**2. Reglas disparadas durante el ataque**
 
 El filtro por `rule.level:10` muestra las alertas de alta severidad generadas durante el ataque, incluyendo la regla **5551** (PAM: multiples logins fallidos) y la regla **5712** (SSH Brute Force intentando acceder al sistema)
 
@@ -263,7 +256,7 @@ El filtro por `rule.level:10` muestra las alertas de alta severidad generadas du
 <br>
 
 
-**4. Mapeo MITRE ATT&CK confirmado en el dashboard**
+**3. Mapeo MITRE ATT&CK confirmado en el dashboard**
 
 El panel **MITRE ATT&CK -> Top Tactics** confirma que el dashboard clasifica correctamente las alertas del ataque, destacando la tactica **Credential Access** con **124 eventos**, evidencia directa de la deteccion de la tecnica **T1110 (Brute Force)**
 
@@ -271,7 +264,7 @@ El panel **MITRE ATT&CK -> Top Tactics** confirma que el dashboard clasifica cor
 
 <br>
 
-**5. Alertas de la regla personalizada (rule.id:100002)**
+**4. Alertas de la regla personalizada (rule.id:100002)**
 
 Filtrando por el ID de nuestra regla personalizada, se confirma que las alertas del ataque estan siendo procesadas por la regla **100002**
 
@@ -303,7 +296,7 @@ Filtrando por el ID de nuestra regla personalizada, se confirma que las alertas 
 
 <br>
 
-**6. Deteccion de File Integrity Monitoring (FIM)**
+**5. Deteccion de File Integrity Monitoring (FIM)**
 
 El modulo FIM del agente Wazuh detecto la modificación no autorizada del archivo `/etc/hosts`, generando una alerta de nivel *7* con la regla **550** (`Integrity checksum changed`). El filtro aplicado (`rule.groups:syscheck` + agent.id:003`) aisla los eventos de integridad del agente linux Mint, mostrando tanto la modificación provocada durante la simulación como otras modificaciones del sistema.
 
@@ -313,7 +306,7 @@ Esta detección corresponde a la técnica **T1565 - Data Manipulation** de MITRE
 
 <br>
 
-**7. Deteccion de login con usuario inexistente (T1078)**
+**6. Deteccion de login con usuario inexistente (T1078)**
 
 El ruleset por defecto de Wazuh detecto **231 intentos de login con usuario inexistente** durante la simulación del ataque. La regla **5710** (`sshd: Attempt to login using a non-existent user`) se dispara cada vez que el servicio SSH registra un intento de autenticación con un usuario que no existe en el sistema, generando alertas de nivel **5**
 
