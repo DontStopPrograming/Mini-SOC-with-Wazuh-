@@ -55,6 +55,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 
 ### Diagrama de Flujo de Ataque y Defensa
 
+![Flujo](img/DAtaque.drawio.svg)
 
 <br>
 
