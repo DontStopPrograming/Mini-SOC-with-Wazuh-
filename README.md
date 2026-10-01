@@ -444,8 +444,8 @@ El autor no se responsabiliza del uso indebido de este material. Aplicar estas t
 ## Autor
 
 **ForME**
-- Portfolio:
-- Github:
+- Portfolio: https://developernazario.netlify.app
+- Github: https://github.com/DontStopPrograming
 
 <br>
 
