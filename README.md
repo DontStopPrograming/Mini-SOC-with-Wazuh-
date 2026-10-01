@@ -49,7 +49,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 
 ### Diagrama de Componentes
 
-![Componentes](img/DComponente.drawio.svg)
+![Componentes](img/DComponente1.drawio.svg)
 
 
 
