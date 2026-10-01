@@ -1,4 +1,4 @@
-# Mini-SOC-with-Wazuh-
+# Wazuh Mini SOC: SSH Brute Force Detection & MITRE ATT&CK Mapping
 Detection Attacks SSH and MITRE ATT&amp;CK
 
 ![Wazuh](https://img.shields.io/badge/Wazuh-4.13.1-blue)
