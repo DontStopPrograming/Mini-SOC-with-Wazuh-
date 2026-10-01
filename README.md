@@ -68,7 +68,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 | **Atacante (simulado)** | Linux Mint (localhost) | sshpass | Generación de eventos de fuerza bruta |
 
 
-## 🏗️ Tecnologías Utilizadas
+## 🛠️ Tecnologías Utilizadas
 
 | Categoría | Herramienta | Versión |
 |-----------|-------------|---------|
@@ -81,7 +81,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 | **Framework** | MITRE ATT&CK | v14 |
 
 
-## 🏗️ Configuracion Clave
+## ⚙️ Configuracion Clave
 
 ### Regla Personalizada (`config/wazuh_cluster/local_rules.xml`)
 
@@ -92,8 +92,6 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
     <description>SSH brute force dectectado (regla personalizada con MITRE).</description>
     <mitre>
       <id>T1110</id>
-      <tactic>Credential Access</tactic>
-      <technique>Brute Force</technique>
     </mitre>
   </rule>
 </group>
@@ -105,7 +103,7 @@ Laboratorio práctico de Seguridad de la Información que implementa un **mini S
 services:
   wazuh.manager:
     volumes:
-      - ./config/wazuh_cluster/wazuh_manager.conf:/wazuh-config-mount/etc/ossec/.conf
+      - ./config/wazuh_cluster/wazuh_manager.conf:/wazuh-config-mount/etc/ossec.conf
       - ./config/wazuh_cluster/local_rules.xml:/var/ossec/etc/rules/local_rules.xml
 ```
 
@@ -143,7 +141,7 @@ services:
                   -o ConnectTimeout=1 \
                   -o PreferredAuthentications=password \
                   2>/dev/null
-            echo "[+] Intento ${i}\${INTENTOS}"
+            echo "[+] Intento ${i}/${INTENTOS}"
   done
   echo "[ok] Ataque completado. Filtra en el dashboard: rule.id:100002"
 ```
@@ -245,12 +243,6 @@ El dashboard muestra **246 fallos de autenticación** concentrados en un pico te
 
 ![Dashboard General](img/dashboard.JPG)
 
-| Descripcion del Dashboard |
-|---------------------------|
-| Total de valor 40 eventos detectados |
-| Level 12 de valor 0 ninguna alerta supera el nivel 12 |
-| Authentication failure de valor 0 contador global del dashboard |
-| Authentication de valor 16 Logins existosos legitimos del sistema |
 
 <br>
 
@@ -333,11 +325,11 @@ Esta deteccion corresponde a la tecnica **T1078 - Valid Accounts** de MITRE ATT&
 
 ## 🎯 Casos de Uso Demostrados
 
-| Caso de uso | Tecnica MITRE | Estado |
-|-------------|---------------|--------|
-| Deteccion de fuerza bruta SSH | T1110 - Brute Force | Implementado |
-| Monitoreo de integridad de archivos criticos | T1565 - Data Manipulation | Implementado
-| Deteccion de login con usuario inexistente | T1078 - Valid Accounts | Implementado
+| Caso de uso | Tecnica MITRE | Origen | Estado |
+|-------------|---------------|--------|--------|
+| Deteccion de fuerza bruta SSH | T1110 - Brute Force | Regla personalizada `100002` | Implementado |
+| Monitoreo de integridad de archivos criticos | T1565 - Data Manipulation | Regla FIM `550` | Detectado por Wazuh |
+| Deteccion de login con usuario inexistente | T1078 - Valid Accounts | Regla `5710` | Detectado por Wazuh |
 
 <br>
 
@@ -408,7 +400,6 @@ Errores comunes en la sintaxis del archivo local_rules.xml
         <mitre>
           <id>T1110</id>
         </mitre>
-      <group>authentication_failures,brute_force,</group>
       </rule>
 
     </group>
